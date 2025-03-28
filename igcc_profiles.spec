@@ -1,5 +1,5 @@
 # -*- mode: python ; coding: utf-8 -*-
-
+import shutil
 
 a = Analysis(
     ['igcc_profiles.py'],
@@ -10,7 +10,7 @@ a = Analysis(
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
-    excludes=[],
+    excludes=['config'],
     noarchive=False,
     optimize=0,
 )
@@ -37,3 +37,5 @@ exe = EXE(
     entitlements_file=None,
     icon=['igcc_profiles.ico'],
 )
+
+shutil.copy("config.py", "dist/")
